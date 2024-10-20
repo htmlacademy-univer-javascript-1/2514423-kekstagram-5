@@ -1,6 +1,6 @@
 function checkTheString(string, maxLength) {
   if (string.length <= maxLength) {
-    return string.length <= maxLength
+    return string.length <= maxLength;
   }
 }
 // Cтрока короче 20 символов
