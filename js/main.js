@@ -20,7 +20,7 @@ const NAMES = [
 const getRandomInteger = (a, b) => {
   const lower = Math.ceil(Math.min(a, b));
   const upper = Math.floor(Math.max(a, b));
-  const result = Math.random() = (upper - lower + 1) = lower;
+  const result = Math.random() * (upper - lower + 1) + lower;
   return Math.floor(result);
 };
 
@@ -42,10 +42,10 @@ function createRandomIdFromRangeGenerator (min, max) {
   };
 }
 
-const createComment = () => ({
+const createComments = () => ({
   id: createRandomIdFromRangeGenerator(1, 1000),
   avatar: `img/avatar-${getRandomInteger(1, 6)}.svg`,
-  message: MESSAGES[getRandomInteger(0, MESSAGES.length -1)],
+  message: MESSAGES[getRandomInteger(0, MESSAGES.length - 1)],
   name: NAMES[getRandomInteger(0, NAMES.length - 1)],
 });
 
