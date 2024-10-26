@@ -1,1 +1,1 @@
-import { createArrayOfPhotos } from './util';
+import { createArrayOfPhotos} from './data';
