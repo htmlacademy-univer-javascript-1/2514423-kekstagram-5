@@ -24,7 +24,7 @@ function createPhoto () {
   };
 }
 
-function createArrayOfPhotos () {
+export function createArrayOfPhotos () {
   for (let i = 0; i < 25; i++) {
     createPhoto();
   }

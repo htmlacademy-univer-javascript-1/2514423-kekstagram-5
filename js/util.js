@@ -4,7 +4,7 @@ import {
   createArrayOfPhotos,
 } from './data.js';
 
-const MESSAGES = [
+export const MESSAGES = [
   'Всё отлично!',
   'В целом всё неплохо. Но не всё.',
   'Когда вы делаете фотографию, хорошо бы убирать палец из кадра. В конце концов это просто непрофессионально.',
@@ -13,7 +13,7 @@ const MESSAGES = [
   'Лица у людей на фотке перекошены, как будто их избивают. Как можно было поймать такой неудачный момент?!',
 ];
 
-const NAMES = [
+export const NAMES = [
   'Даниил',
   'Федор',
   'Михаил',
@@ -30,7 +30,7 @@ const getRandomInteger = (a, b) => {
   return Math.floor(result);
 };
 
-function createRandomIdFromRangeGenerator (min, max) {
+export function createRandomIdFromRangeGenerator (min, max) {
   const previousValues = [];
 
   return function () {
