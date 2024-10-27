@@ -4,7 +4,7 @@ import {
   createArrayOfPhotos,
 } from './data.js';
 
- export const MESSAGES = [
+export const MESSAGES = [
   'Всё отлично!',
   'В целом всё неплохо. Но не всё.',
   'Когда вы делаете фотографию, хорошо бы убирать палец из кадра. В конце концов это просто непрофессионально.',
