@@ -31,4 +31,6 @@ export function createPhoto () {
 }
 createArrayOfPhotos();
 
+export const MESSAGES = MESSAGES;
+
 export{MESSAGES, NAMES, getRandomInteger, createRandomIdFromRangeGenerator};
