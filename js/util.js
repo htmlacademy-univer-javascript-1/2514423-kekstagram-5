@@ -1,5 +1,4 @@
 import {
-  createComments,
   createPhoto,
   createArrayOfPhotos,
 } from './data.js';
@@ -22,6 +21,13 @@ export const NAMES = [
   'Марина',
   'Дмитрий'
 ];
+
+export const createComments = () => ({
+  id: createRandomIdFromRangeGenerator(1, 1000),
+  avatar: `img/avatar-${getRandomInteger(1, 6)}.svg`,
+  message: MESSAGES[getRandomInteger(0, MESSAGES.length - 1)],
+  name: NAMES[getRandomInteger(0, NAMES.length - 1)],
+});
 
 export const getRandomInteger = (a, b) => {
   const lower = Math.ceil(Math.min(a, b));
@@ -48,4 +54,4 @@ export function createRandomIdFromRangeGenerator (min, max) {
   };
 }
 
-export{createComments, createPhoto, createArrayOfPhotos};
+export{createPhoto, createArrayOfPhotos};

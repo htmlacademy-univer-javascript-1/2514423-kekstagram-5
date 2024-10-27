@@ -3,13 +3,6 @@ import {
   createRandomIdFromRangeGenerator,
 } from './util.js';
 
-export const createComments = () => ({
-  id: createRandomIdFromRangeGenerator(1, 1000),
-  avatar: `img/avatar-${getRandomInteger(1, 6)}.svg`,
-  message: MESSAGES[getRandomInteger(0, MESSAGES.length - 1)],
-  name: NAMES[getRandomInteger(0, NAMES.length - 1)],
-});
-
 export function createPhoto () {
   const comments = [];
   for (let i = 0; i <= getRandomInteger(0, 30); i++) {
