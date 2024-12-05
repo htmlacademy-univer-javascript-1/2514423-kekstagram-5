@@ -1,3 +1,4 @@
-import './data.js';
+import { renderPictures } from "./preview";
+renderPictures();
 
 
