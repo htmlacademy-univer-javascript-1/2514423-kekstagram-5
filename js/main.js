@@ -1,4 +1,4 @@
-import { renderPictures } from "./preview";
+import { renderPictures } from './preview';
 renderPictures();
 
 
