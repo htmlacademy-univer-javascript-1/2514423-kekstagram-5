@@ -39,6 +39,7 @@ function createPhoto () {
     comments: comments
   };
 }
+
 function createArrayOfPhotos () {
   const arrayOfPhotos = [];
   for (let i = 0; i < 25; i++) {
