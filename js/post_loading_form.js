@@ -1,4 +1,6 @@
 import { isEscEvent } from './util.js';
+import { resetEffects } from './effects-image.js';
+import {resetScale} from './scale-control.js';
 
 const MAX_HASHTAGS_COUNT = 5;
 const HASHTAGS_RULES = /^#[a-zа-яё0-9]{1,19}$/i;
@@ -25,7 +27,10 @@ const openModal = () => {
 
 const closeModal = () => {
   form.reset();
+  resetScale();
+  resetEffects();
   pristine.reset();
+
   overlay.classList.add('hidden');
   body.classList.remove('modal-open');
   document.removeEventListener('keydown', onDocumentKeydown);
