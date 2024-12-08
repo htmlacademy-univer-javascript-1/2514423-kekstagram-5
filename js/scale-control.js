@@ -8,26 +8,30 @@ const biggerButtonForm = document.querySelector('.scale__control--bigger');
 const scaleInputForm = document.querySelector('.scale__control--value');
 const image = document.querySelector('.img-upload__preview img');
 
-  const scaleImage = (value) => {
-    image.style.transform = `scale(${value / 100})`;
-    scaleInputForm.value = `${value}%`;
+const scaleImage = (value) => {
+  image.style.transform = `scale(${value / 100})`;
+  scaleInputForm.value = `${value}%`;
 };
 
 const onSmallerButtonClick = () => {
   const currentValue = parseInt(scaleInputForm.value, 10);
   let newValue = currentValue - STEP;
+
   if (newValue < MIN) {
     newValue = MIN;
-    scaleImage(newValue);
   }
+
+  scaleImage(newValue);
 };
 
 const onBiggerButtonClick = () => {
   const currentValue = parseInt(scaleInputForm.value, 10);
   let newValue = currentValue + STEP;
+
   if (newValue > MAX) {
     newValue = MAX;
   }
+
   scaleImage(newValue);
 };
 
