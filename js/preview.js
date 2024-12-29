@@ -1,8 +1,9 @@
-import {createArrayOfPhotos} from './data.js';
+import { createArrayOfPhotos } from './data.js';
 import { postOpen } from './post.js';
 
 const pictureTemplate = document.querySelector('#picture').content.querySelector('.picture');
 const pictures = document.querySelector('.pictures');
+const imgFiltersElement = document.querySelector('.img-filters');
 
 const renderPreview = (post) => {
   const preview = pictureTemplate.cloneNode(true);
@@ -13,9 +14,8 @@ const renderPreview = (post) => {
     evt.preventDefault();
     postOpen(post);
   });
+
   return preview;
-
-
 };
 
 const renderPreviews = function () {
@@ -23,7 +23,14 @@ const renderPreviews = function () {
   createArrayOfPhotos.forEach((picture) => {
     picturesFragment.appendChild(renderPreview(picture));
   });
+
+  pictures.querySelectorAll('.picture').forEach((element) => {
+    element.remove();
+  });
+
   pictures.appendChild(picturesFragment);
+
+  imgFiltersElement.classList.remove('img-filters--inactive');
 };
 
 export { renderPreviews };

@@ -7,6 +7,7 @@ const EFFECTS = [
     step: 1,
     unit: '',
   },
+
   {
     name: 'chrome',
     style: 'grayscale',
@@ -15,6 +16,7 @@ const EFFECTS = [
     step: 0.1,
     unit: '',
   },
+
   {
     name: 'sepia',
     style: 'sepia',
@@ -23,6 +25,7 @@ const EFFECTS = [
     step: 0.1,
     unit: '',
   },
+
   {
     name: 'marvin',
     style: 'invert',
@@ -31,6 +34,7 @@ const EFFECTS = [
     step: 1,
     unit: '%',
   },
+
   {
     name: 'phobos',
     style: 'blur',
@@ -39,6 +43,7 @@ const EFFECTS = [
     step: 0.1,
     unit: 'px',
   },
+
   {
     name: 'heat',
     style: 'brightness',
@@ -47,7 +52,9 @@ const EFFECTS = [
     step: 0.1,
     unit: '',
   },
+
 ];
+
 const DEFAULT_EFFECT = EFFECTS[0];
 let chosenEffect = DEFAULT_EFFECT;
 const image = document.querySelector('.img-upload__preview img');
@@ -55,13 +62,16 @@ const effects = document.querySelector('.effects');
 const slider = document.querySelector('.effect-level__slider');
 const sliderContainer = document.querySelector('.img-upload__effect-level');
 const effectLevel = document.querySelector('.effect-level__value');
+
 const isDefault = () => chosenEffect === DEFAULT_EFFECT;
 const openSlider = () => {
   sliderContainer.classList.remove('hidden');
 };
+
 const closeSlider = () => {
   sliderContainer.classList.add('hidden');
 };
+
 const updateSlider = () => {
   slider.noUiSlider.updateOptions({
     range: {
@@ -71,12 +81,14 @@ const updateSlider = () => {
     step: chosenEffect.step,
     start: chosenEffect.max,
   });
+
   if (isDefault()) {
     closeSlider();
   } else {
     openSlider();
   }
 };
+
 const onEffectsChange = (evt) => {
   if (!evt.target.classList.contains('effects__radio')) {
     return;
@@ -85,6 +97,7 @@ const onEffectsChange = (evt) => {
   image.className = `effects__preview--${chosenEffect.name}`;
   updateSlider();
 };
+
 const onSliderUpdate = () => {
   const sliderValue = slider.noUiSlider.get();
   if (isDefault()) {
@@ -94,10 +107,12 @@ const onSliderUpdate = () => {
   }
   effectLevel.value = sliderValue;
 };
+
 const resetEffects = () => {
   chosenEffect = DEFAULT_EFFECT;
   updateSlider();
 };
+
 noUiSlider.create(slider, {
   range: {
     min: DEFAULT_EFFECT.min,
@@ -107,7 +122,9 @@ noUiSlider.create(slider, {
   step: DEFAULT_EFFECT.step,
   connect: 'lower',
 });
+
 closeSlider();
 effects.addEventListener('change', onEffectsChange);
 slider.noUiSlider.on('update', onSliderUpdate);
+
 export { resetEffects };
