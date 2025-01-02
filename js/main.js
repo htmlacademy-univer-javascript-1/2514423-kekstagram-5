@@ -1,25 +1,14 @@
-import { renderPreviews } from './preview.js';
-import { getData, sendData } from './api.js';
-import { showAlert, debounce } from './util.js';
-import { onFormSubmit, closeModal, showFullSuccessMessage, showFullErrorMessage } from './edit-form.js';
-import { initFilterListeners } from './filter.js';
+import { initCreatePopup } from './create-picture-popup.js';
+import { renderPictures } from './thumbnails.js';
+import { getData } from './api.js';
+import { debounce, showAlert } from './utils.js';
+import { initFilters } from './filters.js';
 
-const RENDER_PHOTOS_DELAY = 500;
+getData()
+  .then((pictures) => {
+    renderPictures(pictures);
+    initFilters(pictures, debounce(renderPictures));
+  })
+  .catch((err) => showAlert(err.message));
 
-onFormSubmit(async (data) => {
-  try {
-    await sendData(data);
-    closeModal();
-    showFullSuccessMessage();
-  } catch {
-    showFullErrorMessage();
-  }
-});
-
-try {
-  const data = await getData();
-  renderPreviews(data);
-  initFilterListeners(data, debounce(renderPreviews, RENDER_PHOTOS_DELAY));
-} catch (err) {
-  showAlert(err.message);
-}
+initCreatePopup();
